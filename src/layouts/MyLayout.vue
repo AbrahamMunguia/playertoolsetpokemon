@@ -6,6 +6,7 @@
           flat
           dense
           round
+          glossy
           @click="leftDrawerOpen = !leftDrawerOpen"
           aria-label="Menu"
         >
@@ -13,10 +14,9 @@
         </q-btn>
 
         <q-toolbar-title>
-          Quasar App
+          <q-icon name="img:https://pbs.twimg.com/media/Cw2SMxJWIAEvO5D.png" />
+          Pokemon DND Tools
         </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
 
@@ -26,63 +26,19 @@
       bordered
       content-class="bg-grey-2"
     >
-      <q-list>
-        <q-item-label header>Essential Links</q-item-label>
-        <q-item clickable tag="a" target="_blank" href="https://quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="school" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Docs</q-item-label>
-            <q-item-label caption>quasar.dev</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://github.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="code" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Github</q-item-label>
-            <q-item-label caption>github.com/quasarframework</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://chat.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="chat" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Discord Chat Channel</q-item-label>
-            <q-item-label caption>chat.quasar.dev</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://forum.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="record_voice_over" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Forum</q-item-label>
-            <q-item-label caption>forum.quasar.dev</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://twitter.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="rss_feed" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Twitter</q-item-label>
-            <q-item-label caption>@quasarframework</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" href="https://facebook.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="public" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Facebook</q-item-label>
-            <q-item-label caption>@QuasarFramework</q-item-label>
-          </q-item-section>
-        </q-item>
-      </q-list>
+      <q-scroll-area class="fit">
+        <q-item-label header>Menu</q-item-label>
+        <q-list v-for="(menuItem, iteration) in pokeMenu" :key="iteration">
+          <q-item clickable :active="menuItem.label === Outbox" v-ripple :to="menuItem.to">
+            <q-item-section avatar>
+              <q-icon :name="menuItem.icon"/>
+            </q-item-section>
+            <q-item-section>
+              {{menuItem.label}}
+            </q-item-section>
+          </q-item>
+        </q-list>
+      </q-scroll-area>
     </q-drawer>
 
     <q-page-container>
@@ -93,12 +49,40 @@
 
 <script>
 import { openURL } from 'quasar'
+const pokeMenu = [
+  {
+    icon: 'img:https://pokemonalpha.xyz/wp-content/uploads/2016/06/Pok%C3%A9-Ball.png',
+    label: 'Trainer',
+    separator: false,
+    to: '/trainer'
+  },
+  {
+    icon: 'img:https://pokemonalpha.xyz/wp-content/uploads/2016/06/Super-Ball.png',
+    label: 'Pokemon',
+    separator: false,
+    to: '/pokemon'
+  },
+  {
+    icon: 'img:https://pokemonalpha.xyz/wp-content/uploads/2016/06/Ultra-Ball.png',
+    label: 'Box',
+    separator: false,
+    to: '/box'
+  },
+  {
+    icon: 'img:https://pokemonalpha.xyz/wp-content/uploads/2016/06/Safari-Ball.png',
+    label: 'Misc',
+    separator: false,
+    to: '/misc'
 
+  }
+
+]
 export default {
   name: 'MyLayout',
   data () {
     return {
-      leftDrawerOpen: false
+      leftDrawerOpen: false,
+      pokeMenu
     }
   },
   methods: {
