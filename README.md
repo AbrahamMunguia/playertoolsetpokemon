@@ -3,7 +3,7 @@
 A quasar training app but also, design for DND 
 TODO:
 
-Update for SWSH
+- Update for SWSH
 
 ## Install the dependencies
 ```bash
