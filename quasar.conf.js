@@ -53,11 +53,11 @@ module.exports = function (ctx) {
         'QItemSection',
         'QItemLabel',
         'QCard',
-      'QCardSection',
-      'QCardActions'
+        'QCardSection',
+        'QCardActions',
+        'QSelect',
         ]
       ,
-
       directives: [
         'Ripple'
       ],

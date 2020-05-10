@@ -62,6 +62,12 @@ const pokeMenu = [
     to: '/trainer'
   },
   {
+    icon: 'img:https://pokemonalpha.xyz/wp-content/uploads/2016/06/Love-Ball.png',
+    label: 'Add Pokemon',
+    separator: false,
+    to: '/createpokemon'
+  },
+  {
     icon: 'img:https://pokemonalpha.xyz/wp-content/uploads/2016/06/Super-Ball.png',
     label: 'Pokemon',
     separator: false,
