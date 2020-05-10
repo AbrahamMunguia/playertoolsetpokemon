@@ -1,6 +1,9 @@
 # PokemonTooling (pokemongm)
 
 A quasar training app but also, design for DND 
+TODO:
+
+- Update for SWSH
 
 ## Install the dependencies
 ```bash
@@ -24,3 +27,8 @@ quasar build
 
 ### Customize the configuration
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
+
+### Integration with discord:
+
+Webhook: Activated
+
