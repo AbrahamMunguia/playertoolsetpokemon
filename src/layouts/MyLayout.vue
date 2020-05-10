@@ -40,7 +40,6 @@
         </q-list>
       </q-scroll-area>
     </q-drawer>
-
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -50,6 +49,12 @@
 <script>
 import { openURL } from 'quasar'
 const pokeMenu = [
+  {
+    icon: 'img:https://pokemonalpha.xyz/wp-content/uploads/2016/06/Master-Ball.png',
+    label: 'Pokedex',
+    separator: false,
+    to: '/pokedex'
+  },
   {
     icon: 'img:https://pokemonalpha.xyz/wp-content/uploads/2016/06/Pok%C3%A9-Ball.png',
     label: 'Trainer',

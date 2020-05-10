@@ -6,6 +6,7 @@ module.exports = function (ctx) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     boot: [
+      'axios'
     ],
 
     css: [
@@ -30,7 +31,8 @@ module.exports = function (ctx) {
 
       // all: true, // --- includes everything; for dev only!
 
-      components: [
+      components: 
+        [
         'QLayout',
         'QHeader',
         'QDrawer',
@@ -44,8 +46,17 @@ module.exports = function (ctx) {
         'QItem',
         'QItemSection',
         'QItemLabel',
-        'QImg'
-      ],
+        'QImg',
+        'QInput',
+        'QList',
+        'QItem',
+        'QItemSection',
+        'QItemLabel',
+        'QCard',
+      'QCardSection',
+      'QCardActions'
+        ]
+      ,
 
       directives: [
         'Ripple'
@@ -73,7 +84,8 @@ module.exports = function (ctx) {
           loader: 'eslint-loader',
           exclude: /node_modules/,
           options: {
-            formatter: require('eslint').CLIEngine.getFormatter('stylish')
+            formatter: require('eslint').CLIEngine.getFormatter('stylish'),
+            fix: true
           }
         })
       }
